@@ -2,7 +2,9 @@ from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 
-SQLALCHEMY_DATABASE_URL = "postgresql://postgres:ccpgP#323@localhost/movie_db"
+import os
+
+SQLALCHEMY_DATABASE_URL = os.environ.get("PG_DB")
 
 engine = create_engine(
     SQLALCHEMY_DATABASE_URL)
